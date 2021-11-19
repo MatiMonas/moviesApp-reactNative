@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { TouchableOpacity, StyleSheet, Image, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 //CUANDO QUEREMOS RENDERIZAR IMAGENES QUE VIENEN DESDE ARCHIVO TENEMOS QUE IMPORTARLA CON EL REQUIRE
@@ -12,9 +12,15 @@ const propTypes = {
 
 class Card extends React.PureComponent {
   render() {
-    const { item } = this.props;
+    const { item, navigation } = this.props;
     return (
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('Detail', {
+            movieId: item.id,
+          })
+        }
+        style={styles.container}>
         <Image
           style={styles.movieImage}
           source={
@@ -23,6 +29,9 @@ class Card extends React.PureComponent {
               : placeholderImg
           }
         />
+        {!item.poster_path && (
+          <Text style={styles.movieName}>{item.title}</Text>
+        )}
       </TouchableOpacity>
     );
   }
@@ -37,6 +46,12 @@ const styles = StyleSheet.create({
     height: 200,
     width: 120,
     borderRadius: 5,
+  },
+  movieName: {
+    position: 'absolute',
+    width: 100,
+    top: 10,
+    textAlign: 'center',
   },
 });
 Card.propTypes = propTypes;

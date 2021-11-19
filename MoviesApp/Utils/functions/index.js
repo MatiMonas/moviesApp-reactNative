@@ -3,6 +3,7 @@ import { getUpcomingMovies } from './getUpcomingMovies';
 import { getPopularTv } from './getPopularTv';
 import { getFamilyMovies } from './getFamilyMovies';
 import { getDocumentarys } from './getDocumentarys';
+import { getMovieDetails } from './getMovieDetails';
 
 // Puttin all functions to a promise to make it more efficient
 const getData = () => {
@@ -15,4 +16,4 @@ const getData = () => {
   ]);
 };
 
-export { getData };
+export { getData, getMovieDetails };

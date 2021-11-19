@@ -9,6 +9,7 @@ const constants = {
   POPULAR_TV_URL: `${API_URL}tv/popular?api_key=${API_KEY}`,
   FAMILY_MOVIES_URL: `${GENRES_URL}10751&api_key=${API_KEY}`,
   DOCUMENTARY_URL: `${GENRES_URL}99&api_key=${API_KEY}`,
+  DETAILS_URL: `${API_URL}movie/`,
 };
 
 export default constants;
